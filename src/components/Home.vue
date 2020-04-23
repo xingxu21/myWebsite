@@ -1,14 +1,18 @@
 <template>
-  <div>
+  <div class="home">
     <h1>Home</h1>
-    <p>Here is some information. This is the home page</p>
   </div>
 </template>
-
 <script>
 export default {
-  name: 'Home' //this is the name of the component
+  name: 'home',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
 }
 </script>
-<style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
 </style>
