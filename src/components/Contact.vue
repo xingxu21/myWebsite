@@ -15,7 +15,7 @@ export default {
   name: 'Contact',
   data(){
     return {
-      email: 'feng.xingxu@gmail.com'
+      email: 'feng.xingxu@gmail.com',
       web: 'davidfeng.io'
     }
   }
