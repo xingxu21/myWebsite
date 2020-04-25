@@ -2,9 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import HelloWorld from '@/components/HelloWorld'
-import Home from '../components/Home'
 import About from '../views/About'
-
+import Second from '../views/Second'
 Vue.use(VueRouter);
 const routes = [
   {
@@ -13,17 +12,12 @@ const routes = [
     component: HelloWorld
   }, //below is the object that was added for the home path
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/second',
+    name: 'Second',
+    component: Second
   },
   {
     path: '/about',
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/wild',
     name: 'About',
     component: About
   }
