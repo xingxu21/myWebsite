@@ -10,6 +10,9 @@
       <h1 class="animated fadeInDown"> David Feng </h1>
 
   </div>
+  <h1>Hello.</h1>
+
+  <h2> My name is David Feng. </h2>
   <img src='../assets/pluto-done.png'>
 </div>
 </template>
