@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import About from '../views/About'
 import Second from '../views/Second'
 import Splash from '../views/Splash'
+import Resume from '../views/Resume'
 Vue.use(VueRouter);
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/resume',
+    name: 'Resume',
+    component: Resume
   }
 ]
 const router = new VueRouter({
