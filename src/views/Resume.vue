@@ -14,4 +14,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.resumePage {
+  margin-top:3px
+}
 </style>
