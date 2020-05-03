@@ -30,7 +30,7 @@ body {
 }
 
 .splash-container {
-  background-image: url("IMG_7601.jpg");
+  /* background-image: url("IMG_7601.jpg"); */
   height: 100%;
   width: 100%;
   position: fixed;

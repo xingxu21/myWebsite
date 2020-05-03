@@ -22,6 +22,8 @@
 
 <style>
 body {
+  background-image: url('assets/IMG_1725.jpg');
+  background-size: cover;
   background-color: #EDEFF2;
 }
 .routerLink {
