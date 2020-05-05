@@ -39,7 +39,7 @@ body {
   height:50px;
   text-align: center;
 
-
+  background-color: #EDEFF2;
   padding: 10px;
 
 }

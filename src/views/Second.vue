@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h2> SUP YALL </h2>
-    <h1>Home</h1>
-    <p>Here is some information. This is the home page</p>
+    Adding navbar sample here
+      <NavBar/>
   </div>
+
 </template>
 
 <script>
+import NavBar from '../components/navbar.vue'
 export default {
-  name: 'Home' //this is the name of the component
+  name: 'Home', //this is the name of the component
+  components: { NavBar}
 }
 </script>
