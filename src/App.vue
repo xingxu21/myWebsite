@@ -38,8 +38,9 @@ body {
 
   line-height: 50px;
   height:50px;
+  width: 100vw;
   text-align: center;
-
+  position: absolute;
   background-color: #EDEFF2;
   padding: 10px;
   z-index: 10;

@@ -14,6 +14,9 @@
 
       <h2> My name is David Feng. </h2>
     </div>
+    <div class='info-container'>
+      Info Container
+    </div>
   </div>
 
 </div>
@@ -28,7 +31,7 @@ export default {
 
 
 .splash-main-container {
-  /* background-image: url("IMG_1725.jpg"); */
+  background-image: url("../assets/SwissMountainSplash.jpg");
   height: 100vh;
 
   width: 100%;
@@ -40,9 +43,8 @@ export default {
   opacity: 1;
   outline-style: dashed;
 }
-.splash-info {
-  position:relative;
-  height: 100%;
+.info-container {
+  height: 50vh;
   width: 100%;
 }
 #name {
