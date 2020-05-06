@@ -1,15 +1,15 @@
 <template>
   <div>
     Adding navbar sample here
-      <NavBar/>
+    <NavBar/>
   </div>
 
 </template>
 
 <script>
-import NavBar from '../components/navbar.vue'
+import NavBar from "../components/NavBar.vue"
 export default {
-  name: 'Home', //this is the name of the component
+  name: 'Home',
   components: { NavBar}
 }
 </script>

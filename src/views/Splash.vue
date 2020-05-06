@@ -8,16 +8,14 @@
     <!-- <div id='name'>
         <h1 class="animated fadeInDown"> David Feng </h1>
     </div> -->
-    <div class='splash-container'>
-      Splash container
+    <div class='splash-main-container'>
+      Splash main container
       <h1>Hello.</h1>
 
       <h2> My name is David Feng. </h2>
     </div>
   </div>
-  <div class='splash-info'>
-    Splash info section
-  </div>
+
 </div>
 </template>
 <script>
@@ -27,19 +25,15 @@ export default {
 }
 </script>
 <style scoped type="text/css">
-.splash-main {
-  /* override parent! */
 
-  background-image: url("../assets/IMG_1725.jpg");
-  height: 100%;
-  background-size: cover;
 
-}
-
-.splash-container {
+.splash-main-container {
   /* background-image: url("IMG_1725.jpg"); */
-  height: 100%;
+  height: 100vh;
+
   width: 100%;
+  margin: 0px;
+  z-index: 4;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
