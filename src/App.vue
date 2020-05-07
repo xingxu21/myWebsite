@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Sintony:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <nav class='NavBar'>
-      <router-link to='/' class='routerLink'>Main Page</router-link>
+      <router-link to='/' class='routerLink'>Home</router-link>
 
       <router-link to='/second' class='routerLink'>Second</router-link>
 
@@ -24,28 +24,37 @@ body {
   /* background-image: url('assets/IMG_1725.jpg'); */
   background-size: cover;
   background-color: #EDEFF2;
-  margin: 1px;
+  margin: 0;
+  padding: 0;
 }
+
 .routerLink {
   color: black;
   text-decoration: none;
   font-family: 'Sintony', sans-serif;
   margin-left: 100px;
-  z-index: 10;
+  font-size: 18px;
+
 
 }
 .NavBar {
 
-  line-height: 50px;
-  height:50px;
+  height:100px;
   width: 100vw;
+  opacity: 1;
+
   text-align: center;
-  position: absolute;
-  background-color: #EDEFF2;
+
+  background-color: rgba(0, 0, 0, .05);
+
+  /* opacity: .3; */
   padding: 10px;
   z-index: 10;
-  outline-style: dashed;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  /* outline-style: dashed; */
+
 
 }
 </style>

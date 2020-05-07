@@ -9,13 +9,12 @@
         <h1 class="animated fadeInDown"> David Feng </h1>
     </div> -->
     <div class='splash-main-container'>
-      Splash main container
-      <h1>Hello.</h1>
-
-      <h2> My name is David Feng. </h2>
+      <div class='david-name'>
+          > David Feng <span style="background-color: black;">&nbsp;</span>
+      </div>
     </div>
     <div class='info-container'>
-      Info Container
+
     </div>
   </div>
 
@@ -29,19 +28,27 @@ export default {
 </script>
 <style scoped type="text/css">
 
+.david-name {
+  color: green;
+  position: absolute;
+  left: 220px;
+  top: 190px;
+  font-size: 100px;
+}
 
 .splash-main-container {
   background-image: url("../assets/SwissMountainSplash.jpg");
   height: 100vh;
 
-  width: 100%;
+  width: 100vw;
+  padding: 0;
   margin: 0px;
   z-index: 4;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 1;
-  outline-style: dashed;
+  /* outline-style: dashed; */
 }
 .info-container {
   height: 50vh;
