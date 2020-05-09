@@ -10,11 +10,11 @@
     </div> -->
     <div class='splash-main-container'>
       <div class='david-name'>
-          > David Feng <span style="background-color: black;">&nbsp;</span>
+          > David Feng
       </div>
     </div>
     <div class='info-container'>
-
+        Here is more info about me
     </div>
   </div>
 
@@ -29,13 +29,45 @@ export default {
 <style scoped type="text/css">
 
 .david-name {
-  color: green;
+  color: black;
   position: absolute;
+  /* border-right: .15em solid orange; --blinker effect */
   left: 220px;
   top: 190px;
-  font-size: 100px;
+  font-size: 4.5em;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .2em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* schrolling effect */
+  letter-spacing: .06em; /* Adjust as needed */
+  animation:
+   typing 1s steps(30, end),
+   blink-caret 1s step-end infinite;
+
 }
 
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 449px } /*hardcoded*/
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black }
+}
 .splash-main-container {
   background-image: url("../assets/SwissMountainSplash.jpg");
   height: 100vh;
