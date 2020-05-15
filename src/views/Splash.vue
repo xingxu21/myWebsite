@@ -16,16 +16,48 @@
           > David Feng
       </div>
       <div class='main-blurb'>
-        <div class='animated fadeInUp'>Fourth year Computer Science | UCLA</div>
+        <div class='animated fadeInUp'>ucla // currently @WalmartLabs</div>
 
       </div>
     </div>
+
+    <!-- SECTION 2: THE INFO -->
+
+
     <div class='info-container'>
-        Here is more info about me
-        <div class='center-content'>
-          blah
-          <FakeTerminal />
+      <div class='col1'>
+        <div class='col1-title'>
+          <h1>Hi there.</h1>
         </div>
+        <div class='fake-terminal'>
+            <FakeTerminal />
+        </div>
+
+      </div>
+      <div id='col2'>
+        <article>
+        <h1>    May 2020</h1>
+
+        <p>
+
+ <br/>
+There’s a plethora of information from Software Engineers
+out there on the latest tools, technology, and practices.
+My niche is best suited for dissemenating non-career
+like information from the perspective of a CS Engineer.
+This website serves as the MVP of who I am and what I do.
+ Expect major changes.
+ <br/>
+<br/>
+David Feng
+
+</p>
+
+        </article>
+      </div>
+
+
+
     </div>
   </div>
 
@@ -49,6 +81,7 @@ export default {
 
 
 <style scoped type="text/css">
+
 .main-blurb {
   position: absolute;
   left: 230px;
@@ -109,13 +142,63 @@ export default {
   background-repeat: no-repeat;
   opacity: 1;
   /* outline-style: dashed; */
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
+
 }
 .info-container {
-  height: 50vh;
+  height: 80vh;
   width: 100%;
+  background-color: #2364AA;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
 }
-#name {
-  text-align: center
+
+.info-container > .col1 {
+  background-color: #FEC601;
+  width: 50%;
+  height: 35%;
+  border-radius: 25px;
+
+  float: left;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
+
 }
+.col1-title {
+  font-family: 'Sintony', sans-serif;
+  font-size: 20px;
+  vertical-align: text-bottom;
+  text-align: center;
+}
+
+ .info-container > #col2 {
+   position: absolute;
+   width: 40vw;
+   margin-left: 55vw;
+   margin-top: 10vh;
+   padding: 25px 50px 75px 100px;
+   /* font-color: white; */
+   /* outline: dotted; */
+   background: rgba(255, 255, 255, 0.8);
+
+   box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
+
+
+
+}
+
+
+#col2 article   {
+  font-family: 'Sintony', sans-serif;
+  /* box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.3); */
+  /* margin: 90px; */
+  border-radius: 10px;
+  text-align: justify;
+  line-height: 25px;
+  /* letter-spacing: 3px; */
+
+
+
+}
+
+
 
 </style>

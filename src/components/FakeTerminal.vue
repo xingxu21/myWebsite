@@ -38,6 +38,9 @@
               Nashville, TN
             </span>
           </div><!--./ row -->
+
+          <div class="screen__row"></div><!--./ row -->
+
  <div class="screen__row">
             <span class="screen__success">
               <b>visitor@davidfeng.io</b>
@@ -52,12 +55,15 @@
 df.education
    </span>
           </div><!--./ row -->
+
           <!-- row -->
           <div class="screen__row">
             <span class="screen__warning">
               University of California Los Angeles (UCLA): B.S. Computer Science
             </span>
           </div><!--./ row -->
+
+          <div class="screen__row"></div><!--./ row -->
 
 
 
@@ -82,6 +88,7 @@ df.residence            </span>
             </span>
           </div><!--./ row -->
 
+          <div class="screen__row"></div><!--./ row -->
 
            <div class="screen__row">
             <span class="screen__success">
@@ -144,12 +151,12 @@ margin: 0;
 // terminal wrapper - used only for align terminal window
 .terminal {
 width: 100%;
-min-height: 100vh;
+min-height: 10vh;
 padding: 30px;
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
+// align-items: center;
+// justify-content: center;
 // terminal out*window
 &__window {
   width: 100%;
