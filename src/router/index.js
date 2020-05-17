@@ -16,7 +16,12 @@ const routes = [
     },
     name: 'Splash',
     component: Splash
-  }, //below is the object that was added for the home path
+  },
+  {
+    path: '/myWebsite',
+    name: 'Splash',
+    component: Splash
+  },//below is the object that was added for the home path
 
   {
     path: '/second',
