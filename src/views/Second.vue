@@ -1,16 +1,18 @@
 <template>
   <div>
     Adding navbar sample here
-
+    <JsonContact />
   </div>
 
 </template>
 
 <script>
 
-// import NavBar from "../components/NavBar.vue"
+import JsonContact from '../components/JsonContact.vue'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {JsonContact}
 
 }
 </script>
