@@ -5,7 +5,7 @@
     <span id='json1'>
       <span id='json1_1'>  "linkedin"</span>
       <span id='json1_2'>  :</span>
-      <span id='json1_3'>link_here</span>
+      <span id='json1_3'>xingxu21</span>
       <span id='json1_4'>  ,</span>
     </span>
 
@@ -14,7 +14,7 @@
     <span id='json2'>
       <span id='json2_1'>  "devpost" </span>
       <span id='json2_2'> :  </span>
-      <span id='json2_3'>link_here </span>
+      <span id='json2_3'>xingxu21 </span>
       <span id='json2_4'>  ,</span>
     </span>
 
@@ -23,7 +23,7 @@
     <span id='json3'>
       <span id='json3_1'>  "email" </span>
       <span id='json3_2'>  :</span>
-      <span id='json3_3'>link_here</span>
+      <span id='json3_3'> "david.x.feng@ucla.edu"</span>
       <span id='json3_4'>  ,</span>
     </span>
 
@@ -50,7 +50,12 @@ export default {
   background: #191721;
 }
 
-#json2_1 {
+#json2_1, #json1_1 ,#json3_1, #json4_1 {
   color: #B2E64C;
+}
+
+#json1_2, #json2_2, #json3_2, #json4_2,
+ #json1_4, #json2_4, #json3_4, #json4_4 {
+  color: #FF5794; /*red */
 }
 </style>
