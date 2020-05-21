@@ -1,7 +1,7 @@
 <template>
   <div>
     Adding navbar sample here
-    <JsonContact />
+    <center><JsonContact /></center>
   </div>
 
 </template>
