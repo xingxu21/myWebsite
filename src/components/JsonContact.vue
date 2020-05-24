@@ -4,33 +4,45 @@
       <span id='json0'>{ <br/>  </span>
     <span id='info-section'>
           <span id='json1'>
-            <span id='json1_1'>  "linkedin"</span>
-            <span id='json1_2'>  : </span>
+            <span id='json1_1'>  "Linkedin"</span>
+            <span id='json1_2'>:</span>
             <span id='json1_3'>
               <a href="https://www.linkedin.com/in/xingxu21/">
-              xingxu21</a></span>
-            <span id='json1_4'>  ,</span>
+              <i class="fab fa-linkedin"></i></a>
+            </span>
+            <span id='json1_4'>  ;</span>
           </span>
 
 
           <span id='json2'>
-            <span id='json2_1'>  "devpost" </span>
-            <span id='json2_2'> :  </span>
+            <span id='json2_1'>  "Devpost"</span>
+            <span id='json2_2'>:</span>
             <span id='json2_3'>
-              <a href="https://www.linkedin.com/in/xingxu21/">
-              xingxu21</a>
+              <a href="https://www.devpost.com/xingxu21/">
+                <i class="fab fa-dev"></i>
+              </a>
             </span>
-            <span id='json2_4'>  ,</span>
+            <span id='json2_4'>  ;</span>
           </span>
 
 
           <span id='json3'>
-            <span id='json3_1'>  "email" </span>
-            <span id='json3_2'>  : </span>
+            <span id='json3_1'>  "Email"</span>
+            <span id='json3_2'>: </span>
             <span id='json3_3'>
               <a href="mailto:david.x.feng@ucla.edu">
-                david.x.feng@ucla.edu</a></span>
-            <span id='json3_4'>  </span>
+              <i class="fas fa-envelope 4x"></i></a></span>
+            <span id='json3_4'> ; </span>
+          </span>
+
+          <span id='json3'>
+            <span id='json3_1'>  "Resume"</span>
+            <span id='json3_2'>: </span>
+            <span id='json3_3'>
+              <a href="/resume">
+                <i class="fas fa-address-card"></i>
+              </a></span>
+            <span id='json3_4'> ; </span>
           </span>
 
   </span>
@@ -41,7 +53,12 @@
 
 <script>
 export default {
-  name: 'JsonContact'
+  name: 'JsonContact',
+  mounted() {
+    let externalScript = document.createElement('script')
+    externalScript.setAttribute('src', 'https://kit.fontawesome.com/7178d801fb.js') //missing cross-origin anonymous tho
+    document.head.appendChild(externalScript)
+  }
 }
 
 </script>
@@ -53,7 +70,7 @@ a {
 }
 #text-box {
   display:block;
-
+  border-radius: 10px;
   text-align: left;
   margin-top: 60px;
   width: 20rem;

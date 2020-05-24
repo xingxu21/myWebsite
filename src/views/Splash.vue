@@ -1,5 +1,6 @@
 <template>
 <div>
+
   <div class='splash-main'>
     <head>
         <!-- <link rel="stylesheet" href="animate.min.css"> -->
@@ -36,24 +37,17 @@
       </div>
       <div id='col2'>
         <article>
-        <h1>    May 2020</h1>
-
-        <p>
-
- <br/>
-There’s a plethora of information from Software Engineers
-out there on the latest tools, technology, and practices.
-My niche is best suited for dissemenating non-career
-like information from the perspective of a CS Engineer.
-This website serves as the MVP of who I am and what I do.
- Expect major changes.
- <br/>
-<br/>
-David Feng
-
-</p>
+                    <h1>    May 2020</h1>
+            There’s a plethora of information from Software Engineers
+            out there on the latest tools, technology, and practices.
+            My niche is best suited for dissemenating non-career
+            like information from the perspective of a CS Engineer.
+            This website serves as the MVP of who I am and what I do.
+             Expect major changes.
 
         </article>
+        <div class='contact-panel'> <center><JsonContact/></center>
+        </div>
       </div>
 
 
@@ -67,10 +61,11 @@ David Feng
 
 <script>
 import FakeTerminal from '../components/FakeTerminal.vue'
+import JsonContact from '../components/JsonContact.vue'
 
 export default {
   name: 'Splash',
-  components:  {FakeTerminal}
+  components:  {FakeTerminal, JsonContact}
 }
 </script>
 
@@ -81,7 +76,10 @@ export default {
 
 
 <style scoped type="text/css">
-
+.contact-panel {
+  margin-top: -2vh;
+  /* box-shadow: 0 14px 28px; */
+}
 .main-blurb {
   position: absolute;
   left: 230px;
@@ -173,8 +171,9 @@ export default {
    position: absolute;
    width: 40vw;
    margin-left: 55vw;
-   margin-top: 10vh;
-   padding: 25px 50px 75px 100px;
+   margin-top: 7vh;
+
+   padding: 25px 50px 4px 100px;
    /* font-color: white; */
    /* outline: dotted; */
    background: rgba(255, 255, 255, 0.8);
