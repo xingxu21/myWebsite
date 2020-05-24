@@ -5,14 +5,14 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Sintony:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <nav class='NavBar'>
+    <!-- <nav class='NavBar'>
       <router-link to='/' class='routerLink'>Home</router-link>
 
       <router-link to='/second' class='routerLink'>Second</router-link>
 
       <router-link to='/about' class='routerLink'>About</router-link>
       <router-link to='/resume' class='routerLink'>Resume</router-link>
-    </nav>
+    </nav> -->
     <router-view  />
   </div>
 </template>
