@@ -29,6 +29,7 @@
       <div class='col1'>
         <div class='col1-title'>
           <h1>Hi there.</h1>
+
         </div>
         <div class='fake-terminal'>
             <FakeTerminal />
@@ -44,10 +45,11 @@
             like information from the perspective of a CS Engineer.
             This website serves as the MVP of who I am and what I do.
              Expect major changes.
-
         </article>
+
         <div class='contact-panel'> <center><JsonContact/></center>
         </div>
+
       </div>
 
 

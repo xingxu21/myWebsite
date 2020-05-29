@@ -39,9 +39,9 @@
             <span id='json3_1'>  "Resume"</span>
             <span id='json3_2'>: </span>
             <span id='json3_3'>
-              <a href="/resume">
+              <router-link to="/resume">
                 <i class="fas fa-address-card"></i>
-              </a></span>
+              </router-link></span>
             <span id='json3_4'> ; </span>
           </span>
 
