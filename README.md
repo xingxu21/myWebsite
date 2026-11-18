@@ -1,24 +1,42 @@
 # mywebsite
 
+Personal site, built with [Astro](https://astro.build). Pages are static files in `src/pages`, which replace the old Vue Router table.
+
+| URL | Page |
+| --- | --- |
+| `/` and `/myWebsite` | Splash |
+| `/second` | Second |
+| `/about` | About |
+| `/resume` | Resume |
+
 ## Project setup
+
+Requires Node.js 22.22.0 or newer. Astro is pinned to 7.4.1 because 7.4.2 and later refuse Node 22.22.2.
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Start the dev server
+
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+`npm run serve` still starts the dev server.
+
+### Production build
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
+Output is written to `dist/`. Preview it with `npm run preview`.
+
+### GitHub Pages
+
 ```
-npm run lint
+npm run gh-pages-deploy
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The old Vue CLI app used `publicPath: './'` so built assets were relative. This Astro app uses root-relative URLs (`/`). For a project site at `https://<user>.github.io/myWebsite/`, set `base: '/myWebsite'` in `astro.config.mjs` before deploying.
