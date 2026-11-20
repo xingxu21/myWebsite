@@ -1,7 +1,7 @@
 ---
 const { title = 'David Feng' } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const favicon = `${base}${base.endsWith('/') ? '' : '/'}favicon.ico`;
+const favicon = `${base}${base.endsWith('/') ? '' : '/'}favicon.svg`;
 ---
 
 <!doctype html>
@@ -9,7 +9,7 @@ const favicon = `${base}${base.endsWith('/') ? '' : '/'}favicon.ico`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href={favicon} />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
     <title>{title}</title>
     <link
       rel="stylesheet"

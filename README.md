@@ -5,10 +5,9 @@ Personal site, built with [Astro](https://astro.build). Pages are static files i
 | URL | Page |
 | --- | --- |
 | `/` and `/myWebsite` | Splash |
-| `/second` | Second |
 | `/about` | About |
-| `/resume` | Resume |
 | `/nyc` | NYC things to do (static page in `public/nyc/index.html`, refreshed daily) |
+| `/ski-trip` | Swiss ski trip planner (static page in `public/ski-trip/index.html`) |
 
 ## Project setup
 
@@ -36,8 +35,6 @@ Output is written to `dist/`. Preview it with `npm run preview`.
 
 ### GitHub Pages
 
-```
-npm run gh-pages-deploy
-```
+Set **Settings → Pages → Source** to **GitHub Actions**. The deployment workflow builds and publishes `dist/` on pushes to `master` and can also be run manually from the Actions tab.
 
-The old Vue CLI app used `publicPath: './'` so built assets were relative. This Astro app uses root-relative URLs (`/`). For a project site at `https://<user>.github.io/myWebsite/`, set `base: '/myWebsite'` in `astro.config.mjs` before deploying.
+The workflow uses the base path reported by GitHub Pages. The default project address is `https://xingxu21.github.io/myWebsite/`; the section links are `/myWebsite/nyc/` and `/myWebsite/ski-trip/`. At the root of a custom domain, use `/nyc/` and `/ski-trip/`.

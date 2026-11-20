@@ -59,9 +59,7 @@
     padding: .85rem 0;
   }
   .controls { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
-  input[type="search"] {
-    flex: 1 1 220px;
-    min-width: 180px;
+  input[type="search"], .date-filter > summary {
     border: 1px solid var(--line);
     background: var(--bg-card);
     border-radius: 999px;
@@ -69,7 +67,20 @@
     font: inherit;
     color: var(--ink);
   }
-  input[type="search"]:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+  input[type="search"] { flex: 1 1 220px; min-width: 180px; }
+  .date-filter { margin-top: .6rem; }
+  .date-filter > summary { cursor: pointer; width: fit-content; }
+  .calendar-panel { margin-top: .7rem; }
+  .calendar-months { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: .8rem; }
+  .calendar-month { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: .65rem; }
+  .calendar-month h3 { margin: 0 0 .4rem; font-size: 1rem; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .2rem; text-align: center; }
+  .calendar-weekday { color: var(--muted); font-size: .72rem; }
+  .calendar-day { min-height: 2rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--bg); color: var(--ink); cursor: pointer; }
+  .calendar-day[aria-pressed="true"] { background: var(--navy); color: white; }
+  .calendar-panel > button { margin-bottom: .6rem; }
+  .toolbar:has(.date-filter[open]) { position: static; }
+  input[type="search"]:focus, .date-filter :focus-visible { outline: 2px solid var(--gold); }
   .toggle {
     display: inline-flex; align-items: center; gap: .4rem;
     font-size: .9rem; color: var(--muted); cursor: pointer; user-select: none;
@@ -97,20 +108,21 @@
     font-family: Palatino, "Palatino Linotype", "Iowan Old Style", "Times New Roman", serif;
     font-size: 1.6rem; margin: 2rem 0 .8rem; font-weight: 600;
   }
-  .lede { color: var(--muted); margin: -.4rem 0 1rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .9rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: .9rem; }
   .day { margin: 0 0 1.6rem; }
   .day-head {
-    position: sticky; top: 86px;
     background: var(--bg);
     padding: .45rem 0 .35rem;
     font-weight: 650;
     letter-spacing: .02em;
     border-bottom: 1px solid var(--line);
-    margin-bottom: .7rem;
-    display: flex; justify-content: space-between; gap: 1rem;
+    margin: 0 0 .7rem;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
   }
   .day-head span { color: var(--muted); font-weight: 500; font-size: .85rem; }
+  .ongoing { margin-top: .8rem; }
+  .ongoing summary { color: var(--muted); cursor: pointer; }
+  .ongoing[open] summary { margin-bottom: .7rem; }
   .card {
     background: var(--bg-card);
     border: 1px solid var(--line);
@@ -128,9 +140,9 @@
     font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
     background: var(--rust); color: #fff; border-radius: 999px; padding: .12rem .5rem;
   }
-  .card h3 { margin: .15rem 0 0; font-size: 1.05rem; line-height: 1.3; font-weight: 650; }
-  .card h3 a { text-decoration: none; }
-  .card h3 a:hover { color: var(--rust); text-decoration: underline; }
+  .card h4 { margin: .15rem 0 0; font-size: 1.05rem; line-height: 1.3; font-weight: 650; }
+  .card h4 a { text-decoration: none; }
+  .card h4 a:hover { color: var(--rust); text-decoration: underline; }
   .meta { color: var(--muted); font-size: .88rem; }
   .desc { margin: .15rem 0 0; font-size: .92rem; }
   .src { margin-top: auto; padding-top: .45rem; font-size: .75rem; color: #8a8377; }
@@ -140,9 +152,6 @@
     padding: 1.4rem 0 2.4rem;
     color: var(--muted);
     font-size: .85rem;
-  }
-  @media (max-width: 640px) {
-    .day-head { top: 118px; }
   }
 </style>
 </head>
@@ -161,19 +170,21 @@
         <input type="search" id="q" placeholder="Search titles, venues, neighborhoods…" autocomplete="off">
         <label class="toggle"><input type="checkbox" id="freeOnly"> Free only</label>
       </div>
+      <details class="date-filter" id="date-filter">
+        <summary>Event date · <span id="selected-date">All dates</span></summary>
+        <div class="calendar-panel" id="event-calendar">
+          <button type="button" class="chip" data-date="" aria-pressed="true">All dates</button>
+          <div class="calendar-months" id="calendar-months"></div>
+        </div>
+      </details>
       <div class="chips" id="chips"></div>
     </div>
   </div>
   <main class="wrap">
-    <section id="ongoing-sec" hidden>
-      <h2>Ongoing exhibits &amp; runs</h2>
-      <p class="lede">Shows, markets, exhibitions, and rinks that span multiple days in this window.</p>
-      <div class="grid" id="ongoing"></div>
-    </section>
     <section>
       <h2>Day by day</h2>
       <div id="agenda"></div>
-      <p class="empty" id="empty" hidden>No events match those filters. Try another category or clear the search.</p>
+      <p class="empty" id="empty" hidden>No events match those filters. Try another date or adjust your other filters.</p>
     </section>
   </main>
   <footer class="wrap">
@@ -184,7 +195,7 @@ const EVENTS = [{"title":"Roy Lichtenstein: Like New","date":"2026-10-11","end_d
 const WINDOW_START = "2026-11-20";
 const WINDOW_END = "2026-12-19";
 const CATS = ["Food & Drinks","Shows & Music","Comedy","Museums & Art","Outdoors & Active","Nightlife","Free & Offbeat"];
-const state = { q: "", cat: "All", free: false };
+const state = { q: "", cat: "All", free: false, date: "" };
 
 function isFree(ev) {
   const p = (ev.price || "").toLowerCase();
@@ -242,7 +253,7 @@ function card(ev, showRange) {
   const badge = ev.new ? `<span class="badge">New</span>` : "";
   return `<article class="card">
     <div class="top"><span class="cat">${esc(ev.category)}</span>${badge}</div>
-    <h3><a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a></h3>
+    <h4><a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a></h4>
     <div class="meta">${esc(when)}${ev.time && showRange ? " · " + esc(ev.time) : ""}</div>
     <div class="meta">${esc(place)}</div>
     ${addr}
@@ -258,32 +269,28 @@ function onDay(ev, iso) {
   const start = ev.date, end = ev.end_date || ev.date;
   return start <= iso && iso <= end;
 }
+const dates = daysInWindow();
+
 function render() {
   const visible = EVENTS.filter(matches);
-  const ongoing = visible.filter(isOngoing);
-  const ong = document.getElementById("ongoing");
-  const sec = document.getElementById("ongoing-sec");
-  if (ongoing.length) {
-    sec.hidden = false;
-    ong.innerHTML = ongoing.map(ev => card(ev, true)).join("");
-  } else {
-    sec.hidden = true;
-    ong.innerHTML = "";
-  }
-  const agenda = document.getElementById("agenda");
-  let html = "";
-  let shown = 0;
-  for (const iso of daysInWindow()) {
-    const items = visible.filter(ev => !isOngoing(ev) && onDay(ev, iso));
+  const shownDates = state.date ? [state.date] : dates;
+  const sections = [];
+  for (const iso of shownDates) {
+    const items = visible.filter(ev => onDay(ev, iso));
     if (!items.length) continue;
-    shown += items.length;
-    html += `<section class="day">
-      <div class="day-head">${fmtDay(iso)} <span>${items.length} event${items.length===1?"":"s"}</span></div>
-      <div class="grid">${items.map(ev => card(ev, ev.end_date && ev.end_date !== ev.date)).join("")}</div>
-    </section>`;
+    const scheduled = items.filter(ev => !isOngoing(ev));
+    const ongoing = items.filter(isOngoing);
+    sections.push(`<section class="day" aria-labelledby="day-${iso}">
+      <h3 class="day-head" id="day-${iso}"><time datetime="${iso}">${fmtDay(iso)}</time> <span>${items.length} event${items.length === 1 ? "" : "s"}</span></h3>
+      ${scheduled.length ? `<div class="grid">${scheduled.map(ev => card(ev, ev.end_date && ev.end_date !== ev.date)).join("")}</div>` : ""}
+      ${ongoing.length ? `<details class="ongoing"${state.date || !scheduled.length ? " open" : ""}>
+        <summary>Ongoing events (${ongoing.length})</summary>
+        <div class="grid">${ongoing.map(ev => card(ev, true)).join("")}</div>
+      </details>` : ""}
+    </section>`);
   }
-  agenda.innerHTML = html;
-  document.getElementById("empty").hidden = !!(ongoing.length || shown);
+  document.getElementById("agenda").innerHTML = sections.join("");
+  document.getElementById("empty").hidden = sections.length > 0;
 }
 function setupChips() {
   const box = document.getElementById("chips");
@@ -298,6 +305,38 @@ function setupChips() {
   });
 }
 setupChips();
+const dateFilter = document.getElementById("date-filter");
+const calendar = document.getElementById("event-calendar");
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const months = new Map();
+for (const iso of dates) {
+  const month = iso.slice(0, 7);
+  if (!months.has(month)) months.set(month, []);
+  months.get(month).push(iso);
+}
+document.getElementById("calendar-months").innerHTML = Array.from(months, ([month, days]) => {
+  const first = new Date(`${month}-01T00:00:00Z`);
+  const title = first.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+  const leadingCells = first.getUTCDay() + Number(days[0].slice(-2)) - 1;
+  return `<section class="calendar-month" aria-labelledby="month-${month}">
+    <h3 id="month-${month}">${title}</h3>
+    <div class="calendar-grid">
+      ${weekdays.map(day => `<span class="calendar-weekday">${day}</span>`).join("")}
+      ${'<span aria-hidden="true"></span>'.repeat(leadingCells)}
+      ${days.map(iso => `<button type="button" class="calendar-day" data-date="${iso}" aria-label="${fmtDay(iso)}" aria-pressed="false">${Number(iso.slice(-2))}</button>`).join("")}
+    </div>
+  </section>`;
+}).join("");
+calendar.addEventListener("click", e => {
+  const button = e.target.closest("button[data-date]");
+  if (!button) return;
+  state.date = button.dataset.date;
+  calendar.querySelectorAll("button[data-date]").forEach(day => day.setAttribute("aria-pressed", String(day === button)));
+  document.getElementById("selected-date").textContent = state.date ? fmtDay(state.date) : "All dates";
+  dateFilter.open = false;
+  dateFilter.querySelector("summary").focus();
+  render();
+});
 document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; render(); });
 document.getElementById("freeOnly").addEventListener("change", e => { state.free = e.target.checked; render(); });
 render();
