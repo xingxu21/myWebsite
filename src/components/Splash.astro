@@ -1,0 +1,76 @@
+<div>
+  <div class="splash-main">
+    <div class="splash-main-container">
+      <div class="david-name">&gt; David Feng</div>
+      <div class="main-blurb">
+        <div class="animated fadeInUp">ucla // currently @CLEAR</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .main-blurb {
+    position: absolute;
+    left: 230px;
+    top: 290px;
+    font-family: 'Sintony', sans-serif;
+  }
+  .david-name {
+    color: black;
+    position: absolute;
+    left: 220px;
+    top: 190px;
+    font-size: 4.5em;
+    font-family: 'Sintony', sans-serif;
+    overflow: hidden;
+    border-right: 0.2em solid black;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.04em;
+    animation:
+      typing 1s steps(30, end),
+      blink-caret 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 449px;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+  .splash-main-container {
+    background-image: url('../assets/SwissMountainSplash.jpg');
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0px;
+    z-index: 4;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+  }
+</style>

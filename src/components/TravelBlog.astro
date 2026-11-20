@@ -1,0 +1,107 @@
+---
+import PhotoCarousel from './PhotoCarousel.astro';
+import alps from '../assets/blog/travel-alps.jpg';
+import wing from '../assets/blog/travel-wing.jpg';
+import street from '../assets/blog/travel-street.jpg';
+import coast from '../assets/blog/travel-coast.jpg';
+
+const slides = [
+  {
+    src: alps.src,
+    alt: 'A turquoise alpine lake with chalets along the shore and steep mountains behind it',
+    caption: 'Morning on an alpine lake',
+  },
+  {
+    src: wing.src,
+    alt: 'An airplane wing above a layer of clouds lit by sunrise',
+    caption: 'Sunrise from the window seat',
+  },
+  {
+    src: street.src,
+    alt: 'A narrow cobblestone street at dusk with warm shop lights reflecting on wet stones',
+    caption: 'The street after the lamps come on',
+  },
+  {
+    src: coast.src,
+    alt: 'A cliff path above a deep blue sea, with a white village farther along the coast',
+    caption: 'The path above the coast',
+  },
+];
+---
+
+<section class="travel-blog" id="travel" aria-labelledby="travel-heading">
+  <div class="travel-blog-inner">
+    <p class="kicker">Travel</p>
+    <h2 id="travel-heading">A layover worth keeping</h2>
+    <p class="dek">
+      Sample post. Replace this copy and the photos when you have a trip of your own to write up.
+    </p>
+    <PhotoCarousel slides={slides} />
+    <article>
+      <p>
+        The cheaper fare was the one with a stop. The schedule called it a connection. From the
+        window it looked like a place worth standing in, so the connection became the trip: one
+        night, a walk before breakfast, and a flight home after the light changed.
+      </p>
+      <p>
+        That is the small habit this section is here for. A photo, a place, and a few lines about
+        why the stop was better than the nonstop. Scroll the pictures above, then write the next
+        one in the same shape.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .travel-blog {
+    background: #edeff2;
+    color: #191721;
+    padding: 72px 24px 88px;
+  }
+
+  .travel-blog-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .kicker {
+    margin: 0 0 8px;
+    font-family: 'Sintony', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #2364aa;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: 'Sintony', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .dek {
+    max-width: 38rem;
+    margin: 14px 0 28px;
+    font-family: 'Sintony', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #3c4048;
+  }
+
+  article {
+    margin-top: 28px;
+    padding-top: 8px;
+    border-top: 4px solid #fec601;
+  }
+
+  article p {
+    margin: 18px 0 0;
+    max-width: 40rem;
+    font-family: 'Sintony', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+</style>

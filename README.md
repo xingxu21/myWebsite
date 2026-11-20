@@ -8,6 +8,7 @@ Personal site, built with [Astro](https://astro.build). Pages are static files i
 | `/second` | Second |
 | `/about` | About |
 | `/resume` | Resume |
+| `/nyc` | NYC things to do (static page in `public/nyc/index.html`, refreshed daily) |
 
 ## Project setup
 
